@@ -1,29 +1,29 @@
-# Armadietto Smart (RFID + Rilevamento Telefoni)
+# PhoneLocker - A smart locker for schools and offices (RFID + Phone Detection)
 
-Sistema di controllo per un armadietto di sicurezza. Un controller verifica in tempo reale la presenza di 4 telefoni negli slot e gestisce l'apertura della serratura tramite un relè all'avvicinamento di un bracciale RFID autorizzato. Include una WebUI responsiva in stile glassmorphism con animazioni fluide.
+A security locker control system. A controller verifies the real-time presence of 4 phones in their respective slots and manages the lock mechanism via a relay when an authorized RFID wristband is scanned. It includes a responsive, glassmorphism-style WebUI with fluid animations.
 
-##  Caratteristiche
-* **Controllo Presenza:** Monitoraggio continuo di 4 slot tramite sensori digitali.
-* **Sblocco RFID:** Gestione apertura temporizzata (5 secondi) tramite lettore MFRC522.
-* **Interfaccia Web:** UI futuristica (HTML/CSS/JS separati) con animazioni 3D e contatore in tempo reale.
-* **Sblocco Remoto:** Pulsante di emergenza protetto da password integrato nella dashboard.
+## Features
+* **Presence Control:** Continuous monitoring of 4 slots via digital sensors.
+* **RFID Unlock:** Timed opening management (5 seconds) using an MFRC522 reader.
+* **Web Interface:** Futuristic UI (separated HTML/CSS/JS) featuring 3D animations and a real-time counter.
+* **Remote Unlock:** Password-protected emergency button integrated directly into the dashboard.
 
-##  Hardware Utilizzato
-* Arduino Uno (predisposto per migrazione su ESP32)
-* Lettore RFID RC522
-* 4x Sensori di presenza (Input Digitali)
-* Modulo Relè (Serratura)
-* LED di stato (Rosso/Verde)
+## Hardware Components
+* Arduino Uno (designed for easy migration to ESP32)
+* RC522 RFID Reader
+* 4x Presence Sensors (Digital Inputs)
+* Relay Module (Locker Lock)
+* Status LEDs (Red/Green)
 
-##  Struttura del Progetto
-* `/src` - Codice sorgente per il microcontrollore (.ino)
-* `/webui` - File dell'interfaccia grafica (`index.html`, `style.css`, `script.js`)
+## Project Structure
+* `/src` - Source code for the microcontroller (.ino)
+* `/webui` - Graphical interface files (`index.html`, `style.css`, `script.js`)
 
-##  Collegamenti Pin (Arduino)
-* **Sensori Telefoni:** Pin 2, 3, 4, 5
-* **LED Status:** Verde (Pin 7) | Rosso (Pin 6)
-* **Relè:** Pin 8
-* **RFID RC522:** RST (Pin 9) | SDA/SS (Pin 10) + Bus SPI standard
+## Pin Mapping (Arduino)
+* **Phone Sensors:** Pins 2, 3, 4, 5
+* **Status LEDs:** Green (Pin 7) | Red (Pin 6)
+* **Relay:** Pin 8
+* **RC522 RFID:** RST (Pin 9) | SDA/SS (Pin 10) + Standard SPI Bus
 
-##  Note sul Futuro Sviluppo
-L'interfaccia web include un simulatore JavaScript per il test locale su PC. Il progetto è strutturato per essere trasferito su un **ESP32**, configurando un server WebSocket per inviare i cambi di stato hardware alla UI tramite stringhe JSON.
+## Development Notes
+The web interface includes a JavaScript simulator for local testing on a PC. The project is structured to be transferred to an ESP32, where a WebSocket server can be configured to send hardware state changes to the UI using JSON strings.
